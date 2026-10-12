@@ -1,21 +1,148 @@
 <!doctype html>
-<html lang="zh-CN" data-theme="dark">
+<html lang="zh-CN">
   <head>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="dark" />
-    <meta name="theme-color" content="#12141a" />
-    <meta name="description" content="FileDrop — 自托管 NAS 文件传输助手" />
-    <title>FileDrop</title>
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%231a1d26'/%3E%3Cpath d='M16 7v13m0 0 5-5m-5 5-5-5M8 24h16' stroke='%237c92ff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E" />
-    <script type="module" crossorigin src="/assets/index-CLOFiv7O.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/agora-rtm-CbR3Y-4p.js">
-    <link rel="stylesheet" crossorigin href="/assets/index-B_qZGAEF.css">
+    <meta name="theme-color" content="#10242c" />
+    <meta name="description" content="Pilot Agent 1.2，macOS 与 Windows 下载。" />
+    <title>Pilot Agent</title>
+    <link rel="icon" href="assets/pilot-agent-256.png" />
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #0e1c22;
+        --card: #14303a;
+        --line: #24515c;
+        --text: #e7f4f4;
+        --muted: #9ec4c6;
+        --accent: #2ec4b6;
+        --accent-ink: #06221f;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font: 16px/1.55 "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(900px 420px at 15% -10%, #1a4d55 0%, transparent 60%),
+          var(--bg);
+      }
+      main {
+        width: min(760px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 64px 0 80px;
+      }
+      header {
+        display: flex;
+        gap: 18px;
+        align-items: center;
+        margin-bottom: 36px;
+      }
+      header img {
+        width: 84px;
+        height: 84px;
+        border-radius: 20px;
+      }
+      h1 {
+        margin: 0;
+        font-size: 34px;
+        letter-spacing: -0.03em;
+      }
+      .sub {
+        margin: 4px 0 0;
+        color: var(--muted);
+      }
+      .cards {
+        display: grid;
+        gap: 14px;
+      }
+      a.card {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 18px 20px;
+      }
+      a.card:hover { border-color: var(--accent); }
+      .row {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        align-items: baseline;
+      }
+      .name { font-size: 18px; font-weight: 650; }
+      .get {
+        flex: none;
+        background: var(--accent);
+        color: var(--accent-ink);
+        font-weight: 700;
+        border-radius: 999px;
+        padding: 6px 12px;
+        font-size: 14px;
+      }
+      .meta, .note, footer { color: var(--muted); }
+      .meta { margin: 6px 0 0; font-size: 14px; }
+      section { margin-top: 36px; }
+      h2 { font-size: 16px; margin: 0 0 8px; }
+      code, pre {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 12px;
+      }
+      pre {
+        overflow: auto;
+        padding: 14px 16px;
+        border-radius: 12px;
+        background: #0a171b;
+        border: 1px solid var(--line);
+        color: #d5eeee;
+      }
+      footer { margin-top: 40px; font-size: 13px; }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
+    <main>
+      <header>
+        <img src="assets/pilot-agent-256.png" alt="" width="84" height="84" />
+        <div>
+          <h1>Pilot Agent</h1>
+          <p class="sub">远程端侧控制 · 版本 1.2</p>
+        </div>
+      </header>
+
+      <div class="cards">
+        <a class="card" href="downloads/PilotAgent-macOS.zip">
+          <div class="row">
+            <span class="name">macOS</span>
+            <span class="get">下载</span>
+          </div>
+          <p class="meta">PilotAgent-macOS.zip · 1.6 MB · macOS 12 或更高，Apple 芯片与 Intel</p>
+        </a>
+        <a class="card" href="downloads/PilotAgent-Windows-amd64.exe">
+          <div class="row">
+            <span class="name">Windows</span>
+            <span class="get">下载</span>
+          </div>
+          <p class="meta">PilotAgent-Windows-amd64.exe · 7.3 MB · Windows 10 / 11 64 位</p>
+        </a>
+      </div>
+
+      <section>
+        <h2>安装</h2>
+        <p class="note">macOS：解压后把 Pilot Agent 拖到「应用程序」。若系统提示无法打开，在 Finder 里按住 Control 点按该 App，选择「打开」。</p>
+        <p class="note">Windows：双击运行。程序需要管理员权限。若出现 SmartScreen 提示，选择「更多信息」，再选择「仍要运行」。</p>
+      </section>
+
+      <section>
+        <h2>SHA256</h2>
+        <pre>bd9a627c69a2c632f0ab99cd237533d3ae8edb009fbe64d6621f3faa7ae426ea  PilotAgent-macOS.zip
+84e26f87144cdc6a4762cbe8f990f811a6a720cb193e27c0f8edfae80f05d443  PilotAgent-Windows-amd64.exe</pre>
+      </section>
+
+      <footer>构建于 2026-10-12。macOS 包为通用二进制，本地临时签名，未经 Apple 公证。</footer>
+    </main>
   </body>
 </html>
