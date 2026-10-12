@@ -1,2 +1,4 @@
 97c0693ad1a736c82e5adafc7d4c6a33d08abba557ef1097727bf0d257afa39a  PilotAgent-macOS.zip
 e0941e4658c2dd00645f4d7213698b3189ebd268bb327aa63052cc8acaf634b9  PilotAgent-Windows-amd64.exe
+d2512364083c1dcd87d739e4ccadc631919d76a793d9dd0b5abb15a178a37abf  pta-linux-amd64
+34cc92ecf120fd3ad462f6e4b7cda9c338a141715a434c6caebc85787416ace5  pta-linux-arm64
